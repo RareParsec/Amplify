@@ -16,13 +16,13 @@ function NavigationBar({ state, descriptors, navigation }) {
   const navBarHeight = 90;
 
   return (
-    <View className={`${/*absolute*/ ""} left-0 bottom-0 bg-transparent w-full`}>
-      <BlurView
+    <View className={`absolute left-0 bottom-0 bg-transparent w-full`}>
+      {/* <BlurView
         intensity={100}
         tint="dark"
         className={`absolute bottom-0 left-0 w-full rounded-t-sm`}
         style={{ height: navBarHeight }}
-      />
+      /> */}
       <View className="w-full rounded-t-sm" style={{ backgroundColor: "rgba(0,0,0,1)", height: navBarHeight }}>
         <View className={`flex-row justify-between mx-7`} style={{}}>
           {state.routes.map((route, index) => {
