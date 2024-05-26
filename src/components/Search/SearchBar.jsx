@@ -35,7 +35,7 @@ const SearchBar = ({ headerTitleWidth, layout }) => {
 
   return (
     <Animated.View
-      className={`flex-row justify-end flex-shrink ${showBg ? "bg-zinc-900" : ""} rounded-full ml-2`}
+      className={`flex-row justify-end flex-shrink ${showBg ? "bg-zinc-900" : ""} rounded-full ml-2 `}
       style={{ width: searchBarWidth }}
     >
       {showInput ? (
@@ -52,7 +52,7 @@ const SearchBar = ({ headerTitleWidth, layout }) => {
         ""
       )}
       <Pressable className="w-fit pr-1 pl-1" onPress={manageSearchBar}>
-        <MaterialCommunityIcons name="magnify" color={"#fff"} size={32} />
+        <MaterialCommunityIcons name="magnify" color={"#fff"} size={30} />
       </Pressable>
     </Animated.View>
   );

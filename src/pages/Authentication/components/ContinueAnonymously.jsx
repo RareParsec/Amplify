@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { auth } from "../../../config/FirebaseConfig";
 import { continueAnonymously, setLoading } from "../../../redux/slices/authSlice.js";
 
-const ContinueAnonymously = () => {
+const ContinueAnonymously = ({ disabled = false }) => {
   const dispatch = useDispatch();
   const { loading } = useSelector((state) => state.auth);
 
@@ -19,7 +19,7 @@ const ContinueAnonymously = () => {
 
   return (
     <View className="flex-row items-center">
-      <Pressable className="pb-2" onPress={handleContinueAnonymously} disabled={loading}>
+      <Pressable className="pb-2" onPress={handleContinueAnonymously} disabled={disabled}>
         <Text className="text-[15px] text-zinc-500 font-bold">Continue as guest.</Text>
       </Pressable>
     </View>

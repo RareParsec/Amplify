@@ -13,17 +13,17 @@ import Create from "./src/pages/Create";
 import Notifications from "./src/pages/Notifications";
 import Header from "./src/components/Header-Navigation/Header";
 import Search from "./src/pages/Search";
-import Login from "./src/pages/Authentication/Login.jsx";
-import Loading from "./src/pages/Misc/Loading.jsx";
-import SignUp from "./src/pages/Authentication/SignUp.jsx";
+import Login from "./src/pages/Authentication/Login";
+import Loading from "./src/pages/Misc/Loading";
+import SignUp from "./src/pages/Authentication/SignUp";
 import { persistor, store } from "./src/redux/store.js";
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
-import SelectUsername from "./src/pages/Authentication/SelectUsername.jsx";
+import SelectUsername from "./src/pages/Authentication/SelectUsername";
 import { useDispatch, useSelector } from "react-redux";
 import { setCurrentUser, signOut, revertToIntialState } from "./src/redux/slices/authSlice.js";
 import axios from "./src/config/axios.config.js";
-import VerifyEmail from "./src/pages/Authentication/VerifyEmail.jsx";
+import VerifyEmail from "./src/pages/Authentication/VerifyEmail";
 
 const App = () => {
   const Main = createBottomTabNavigator();
@@ -75,7 +75,7 @@ const App = () => {
   );
 
   useEffect(() => {
-    //dispatch(signOut());
+    // dispatch(signOut());
 
     const unsubscribeIdToken = auth.onIdTokenChanged(async (user) => {
       // console.log("IdTokenChanged");
@@ -96,13 +96,13 @@ const App = () => {
       setUser(user);
 
       if (user) {
-        const response = await axios
+        const responseUsername = await axios
           .post(`/api/auth/get_username_by_firebase_id`, { firebase_id: user.uid })
           .catch((err) => {
             console.log(err);
           });
 
-        dispatch(setCurrentUser({ firebase_id: user.uid, username: response.data.username, email: user.email }));
+        dispatch(setCurrentUser({ firebase_id: user.uid, username: responseUsername.data.username, email: user.email }));
       } else {
         dispatch(setCurrentUser({ firebase_id: null, username: null, email: null }));
       }

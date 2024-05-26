@@ -11,7 +11,7 @@ import {
 } from "firebase/auth";
 
 const intialState = {
-  currentUser: { firebase_id: null, username: null, email: null },
+  currentUser: { firebase_id: null, username: null, email: null, profile_picture: null},
   loading: false,
   error: null,
   accessGranted: false,

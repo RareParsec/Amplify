@@ -3,7 +3,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { continueWithGoogle, setLoading } from "../../../redux/slices/authSlice";
 
-const ContinueWithGoogle = ({ navigation }) => {
+const ContinueWithGoogle = ({ navigation, disabled }) => {
   const dispatch = useDispatch();
   const { loading } = useSelector((state) => state.auth);
 
@@ -23,7 +23,7 @@ const ContinueWithGoogle = ({ navigation }) => {
       <Pressable
         className="py-3 rounded-md border-zinc-800 border"
         onPress={handleContinueWithGoogle}
-        disabled={loading}
+        disabled={disabled}
       >
         <Text className="text-center font-bold text-white text-[20px] mx-12">
           {loading ? "Loading" : "Continue with Google"}
